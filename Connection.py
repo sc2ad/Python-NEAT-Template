@@ -1,7 +1,14 @@
 import random
 import numpy as np
+
+RE_RANDOMIZE_WEIGHT_CHANCE = 0
+def initialize(randomize_weight):
+    global RE_RANDOMIZE_WEIGHT_CHANCE
+    RE_RANDOMIZE_WEIGHT_CHANCE = randomize_weight
+
 class Connection:
     def __init__(self, fromNode, toNode, weight, innovation):
+        assert RE_RANDOMIZE_WEIGHT_CHANCE != 0, "Must call the initialize function before making a class"
         self.fromNode = fromNode
         self.toNode = toNode
         self.weight = weight
